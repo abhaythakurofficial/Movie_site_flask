@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
 from flask_migrate import Migrate
+import logging
+from logging.handlers import RotatingFileHandler
 
 # Load environment variables from .env file
 load_dotenv()
@@ -14,6 +16,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
+
+# Set up logging
+if not app.debug:
+    handler = RotatingFileHandler('error.log', maxBytes=10000, backupCount=1)
+    handler.setLevel(logging.ERROR)
+    app.logger.addHandler(handler)
 
 # Model with full details
 class Movie(db.Model):
@@ -27,14 +35,14 @@ class Movie(db.Model):
 @app.route('/', methods=['GET'])
 def home():
     query = request.args.get('q', '').lower()
-    movies = Movie.query.all()
-    
-    # Limit to 6 movies for the initial load
-    limited_movies = movies[:6]
-    
-    if query:
-        limited_movies = [m for m in movies if query in m.title.lower()][:6]  # Limit search results to 6
-    return render_template('index.html', movies=limited_movies)
+    try:
+        movies = Movie.query.all()
+        if query:
+            movies = [m for m in movies if query in m.title.lower()]
+        return render_template('index.html', movies=movies)
+    except Exception as e:
+        app.logger.error(f"Error fetching movies: {e}")  # Log the error
+        return render_template('500.html'), 500  # Show the internal error page
 
 @app.route('/add', methods=['GET'])
 def add_movie_form():
@@ -49,11 +57,15 @@ def add_movie():
     poster = request.form['poster']
     download_link = request.form['download_link']
 
-    new_movie = Movie(title=title, description=description, poster=poster, download_link=download_link)
-    db.session.add(new_movie)
-    db.session.commit()
-
-    return redirect('/')
+    try:
+        new_movie = Movie(title=title, description=description, poster=poster, download_link=download_link)
+        db.session.add(new_movie)
+        db.session.commit()
+        return redirect('/')
+    except Exception as e:
+        db.session.rollback()  # Rollback the session in case of an error
+        app.logger.error(f"Error adding movie: {e}")  # Log the error
+        return render_template('500.html'), 500  # Show the internal error page
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -82,5 +94,14 @@ def load_more():
         ]
     }
 
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()  # Rollback the session in case of an error
+    return render_template('500.html'), 500
+
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

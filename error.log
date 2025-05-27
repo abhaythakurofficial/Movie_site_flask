@@ -1,0 +1,84 @@
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+Error fetching movies: (psycopg2.errors.UndefinedTable) relation "movie" does not exist
+LINE 2: FROM movie
+             ^
+
+[SQL: SELECT movie.id AS movie_id, movie.title AS movie_title, movie.description AS movie_description, movie.poster AS movie_poster, movie.download_link AS movie_download_link 
+FROM movie]
+(Background on this error at: https://sqlalche.me/e/20/f405)
