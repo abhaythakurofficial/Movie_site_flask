@@ -3,8 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 from dotenv import load_dotenv
 from flask_migrate import Migrate
-import logging
-from logging.handlers import RotatingFileHandler
 
 # Load environment variables from .env file
 load_dotenv()
@@ -16,12 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
-
-# Set up logging
-if not app.debug:
-    handler = RotatingFileHandler('error.log', maxBytes=10000, backupCount=1)
-    handler.setLevel(logging.ERROR)
-    app.logger.addHandler(handler)
 
 # Model with full details
 class Movie(db.Model):
@@ -41,7 +33,6 @@ def home():
             movies = [m for m in movies if query in m.title.lower()]
         return render_template('index.html', movies=movies)
     except Exception as e:
-        app.logger.error(f"Error fetching movies: {e}")  # Log the error
         return render_template('500.html'), 500  # Show the internal error page
 
 @app.route('/add', methods=['GET'])
@@ -64,7 +55,6 @@ def add_movie():
         return redirect('/')
     except Exception as e:
         db.session.rollback()  # Rollback the session in case of an error
-        app.logger.error(f"Error adding movie: {e}")  # Log the error
         return render_template('500.html'), 500  # Show the internal error page
 
 @app.route('/login', methods=['GET', 'POST'])
